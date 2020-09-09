@@ -105,7 +105,6 @@ namespace Cryptography_1
 		//Шифрование 1 методом - Система Цезаря с ключевым словом
 		private void FirstEncrypt()
 		{
-
 			try
 			{
 				if(textBox3.Text.Length>=60)
@@ -313,7 +312,7 @@ namespace Cryptography_1
 				case 2: SecondEncrypt(); break;
 				case 3: ThirdEncrypt(); break;
 				case 4: FourthEncrypt(); break;
-				default: MessageBox.Show("Выберите тип шифра!","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);break;
+				default: MessageBox.Show("Выберите тип шифра!","Error",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);break;
 			}
 		}
 
@@ -327,7 +326,7 @@ namespace Cryptography_1
 				case 2: SecondDecrypt(); break;
 				case 3: ThirdDecrypt(); break;
 				case 4: FourthDecrypt(); break;
-				default: MessageBox.Show("Выберите тип шифра!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); break;
+				default: MessageBox.Show("Выберите тип шифра!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk); break;
 			}
 		}
 
