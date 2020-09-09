@@ -108,10 +108,9 @@ namespace Cryptography_1
 
 			try
 			{
-				int.TryParse(textBox2.Text, out int KeyNumber);
 				if(textBox3.Text.Length>=60)
 					throw new Exception("Длина ключевого слова слишком велика!");
-				if (!(KeyNumber >= 0 && KeyNumber < 999999999))
+				if (!int.TryParse(textBox2.Text, out int KeyNumber))
 					throw new Exception("Не корректный ключевой сдвиг!");
 				FirstCipher firstCipher = new FirstCipher(textBox3.Text, KeyNumber, textBox1.Text);
 				label1.Text = firstCipher.Encode();
@@ -138,7 +137,7 @@ namespace Cryptography_1
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 			}
 		}
 
@@ -159,7 +158,7 @@ namespace Cryptography_1
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 			}
 		}
 
@@ -178,7 +177,7 @@ namespace Cryptography_1
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 			}
 		}
 
@@ -195,7 +194,7 @@ namespace Cryptography_1
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 			}
 		}
 
@@ -210,7 +209,7 @@ namespace Cryptography_1
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 			}
 		}
 
@@ -236,7 +235,7 @@ namespace Cryptography_1
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 			}
 		}
 
@@ -262,7 +261,7 @@ namespace Cryptography_1
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 			}
 		}
 
