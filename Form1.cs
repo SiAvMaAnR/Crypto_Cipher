@@ -116,7 +116,7 @@ namespace Cryptography_1
 			}
 			catch (Exception ex)
 			{
-				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 			}
 		}
 
@@ -126,11 +126,10 @@ namespace Cryptography_1
 		{
 			try
 			{
-				int.TryParse(textBox2.Text, out int KeyNumber);
 				if (textBox3.Text.Length >= 30)
 					throw new Exception("Длина ключевого слова выходит за пределы!");
-				if (!(KeyNumber >= 0 && KeyNumber < 999999999))
-					throw new Exception("Не корректный ключевой сдвиг!");
+				if (!int.TryParse(textBox2.Text, out int KeyNumber))
+					throw new Exception("Не корректный первый ключ!");
 				FirstCipher firstcipher = new FirstCipher(textBox3.Text, KeyNumber, textBox1.Text);
 				label1.Text = firstcipher.Decode();
 			}
@@ -255,7 +254,6 @@ namespace Cryptography_1
 					throw new Exception($"Предельная длина 2 ключа, первый ключ должен быть длиннее");
 				if (IsUniqueString(textBox2.Text) || IsUniqueString(textBox3.Text))
 					throw new Exception($"Ключи должны состоять из уникальных символов!");
-
 				label1.Text = fourthCipher.Decode();
 			}
 			catch (Exception ex)

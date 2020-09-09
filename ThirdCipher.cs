@@ -9,7 +9,7 @@ namespace Cryptography_1
 	class ThirdCipher
 	{
 		//private static string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя0123456789.,?!*/+-=_()%;:#";//Набор сиволов
-		//Перемешанный алфавит
+		//Перемешанный алфавит для повышения качества шифра
 		private static string Alphabet = "ъ=#VКsэGу6ЮлнzSОqhWЫxCФN.HдM8ИdcFjtQ+ITхЦв;awrтDУп:Бж5ЁХЛLчvёгE2Аu70аГ/3Aошeе)бПТЩЭЕZ9mXРЯpygкыi?%юй4Вl,сДьЪзН(ф-PBШOСb_Ж!рoщUЬR*JямnKЧЗ1YМцfkЙи";//Набор сиволов
 
 		private static int columns = 12;//Столбцы
