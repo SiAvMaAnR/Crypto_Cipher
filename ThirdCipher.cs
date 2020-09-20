@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+// ***** Двойной квадрат Уитстона ***** 
 namespace Cryptography_1
 {
 	class ThirdCipher

@@ -4,21 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+// ***** Шифр двойной перестановки ***** 
 namespace Cryptography_1
 {
 	class FourthCipher
 	{
 		private static string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя";//Набор сиволов
-		private string NewAlphabet = Alphabet;
-		private string text = "";
-		private int[] firstNumberKey;
-		private int[] secondNumberKey;
+		private string NewAlphabet = Alphabet;//Не статическая копия алфавита
+
+		private string text = "";//Входной текст
+
+		private int[] firstNumberKey;//Первый числовой ключ
+		private int[] secondNumberKey;//Второй числовой ключ
 
 		private string encrypt;//Зашифрованные данные
 		private string decrypt;//Дешифрованные данные
 
-		public int height;//Высота
-		private int width;//Широта
+		public int height;//Высота таблицы
+		private int width;//Широта таблицы
 
 		private char[,] Table;//Таблица
 		private char[,] FirstTable;//Таблица смены столбцов

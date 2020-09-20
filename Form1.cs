@@ -171,6 +171,7 @@ namespace Cryptography_1
 				SecondCipher secondCipher = new SecondCipher(K, A, textBox1.Text, out int LengthAlphabet);
 				if (NOD(K, LengthAlphabet) != 1)
 					throw new Exception($"Первый ключ должен быть взаимно простым с числом {LengthAlphabet}!");
+				//label1.Text = secondCipher.Decode();
 				label1.Text = secondCipher.Decode();
 			}
 			catch (Exception ex)

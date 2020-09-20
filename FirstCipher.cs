@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+// ***** Система Цезаря с ключевым словом ***** 
 namespace Cryptography_1
 {
 	class FirstCipher

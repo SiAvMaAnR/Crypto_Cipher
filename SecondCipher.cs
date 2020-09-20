@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+// ***** Афинная система подстановок Цезаря ***** 
 namespace Cryptography_1
 {
 	class SecondCipher
@@ -20,14 +22,14 @@ namespace Cryptography_1
 		private string Text;//Входной текст
 
 		private int N = Alphabet.Length;//Количество элементов в алфавите
-		private int A;//Первый ключ
-		private int B;//Второй ключ
+		private int FirstKey;//Первый ключ
+		private int SecondKey;//Второй ключ
 
-		public SecondCipher(int A,int B, string Text, out int Lenght)
+		public SecondCipher(int FirstKey,int SecondKey, string Text, out int Lenght)
 		{
 			Lenght = N;//Передача длины Алфавита
-			this.A = A;
-			this.B = B;
+			this.FirstKey = FirstKey;
+			this.SecondKey = SecondKey;
 			this.Text=Text;
 		}
 
@@ -42,7 +44,7 @@ namespace Cryptography_1
 		{
 			for (int i = 0; i < N; i++)
 			{
-				NewArrNumber[i] = (A * ArrNumber[i] + B) % N;
+				NewArrNumber[i] = (FirstKey * ArrNumber[i] + SecondKey) % N;
 			}
 		}
 
@@ -79,6 +81,5 @@ namespace Cryptography_1
 			}
 			return decrypt;
 		}
-
 	}
 }
