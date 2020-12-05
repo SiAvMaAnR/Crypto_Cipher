@@ -12,7 +12,8 @@ namespace Cryptography_1
 	{
 		//private static string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыьэюя0123456789.,?!*/+-=_()%;:#";//Набор сиволов
 		//Перемешанный алфавит для повышения качества шифра
-		private static string Alphabet = "ъ=#VКsэGу6ЮлнzSОqhWЫxCФN.HдM8ИdcFjtQ+ITхЦв;awrтDУп:Бж5ЁХЛLчvёгE2Аu70аГ/3Aошeе)бПТЩЭЕZ9mXРЯpygкыi?%юй4Вl,сДьЪзН(ф-PBШOСb_Ж!рoщUЬR*JямnKЧЗ1YМцfkЙи";//Набор сиволов
+		private static string AlphabetA = "ъ=#VКsэGу6ЮлнzSОqhWЫxCФN.HдM8ИdcFjtQ+ITхЦв;awrтDУп:Бж5ЁХЛLчvёгE2Аu70аГ/3Aошeе)бПТЩЭЕZ9mXРЯpygкыi?%юй4Вl,сДьЪзН(ф-PBШOСb_Ж!рoщUЬR*JямnKЧЗ1YМцfkЙи";//Набор сиволов
+		private static string AlphabetB = "ъhRbБHOЪЬp;6zяАзуЕDwцэ(_cGmЗж7PаФыоIчЫпП+К%*N4vЙrЦl5KСТШjёшZiьЯ9НUДJУМQ=б)Ч0W:.?щРЩ/XЭХdCГAkкn1SЖ!юqV,Lфт-Bs3н82EрЛYMд#ВйFОеuИЮлftaхЁyмeгTxogсви";//Набор сиволов
 
 		private static int columns = 12;//Столбцы
 		private static int rows = 12;//Ряды
@@ -28,7 +29,7 @@ namespace Cryptography_1
 
 		private string text = "";
 
-		public ThirdCipher(string firstKey,string secondKey,string text)
+		public ThirdCipher(string firstKey, string secondKey, string text)
 		{
 			//Удаление повторяющихся символов из первого ключа
 			this.firstKey = new string(firstKey.Distinct().ToArray()).Replace(" ", "");
@@ -37,9 +38,9 @@ namespace Cryptography_1
 			this.text = text;
 		}
 
-		private string GetKeyLess(string _Key)//Вернуть алфавит без указанного ключа
+		private string GetKeyLess(string _Key,string Alphabet_)//Вернуть алфавит без указанного ключа
 		{
-			string ResidualAlphabet = Alphabet;
+			string ResidualAlphabet = Alphabet_;
 			for (int i = 0; i < _Key.Length; i++)//Алфавит без Ключевого слова
 			{
 				ResidualAlphabet = ResidualAlphabet.Replace(_Key[i].ToString(), "");
@@ -50,7 +51,7 @@ namespace Cryptography_1
 		//Первый квадрат
 		private void SetFirstSquare()
 		{
-			string KeyLess = GetKeyLess(firstKey);
+			string KeyLess = GetKeyLess(firstKey,AlphabetA);
 			int index = 0, k = 0;
 			for (int i = 0; i < rows; i++)
 			{
@@ -63,7 +64,7 @@ namespace Cryptography_1
 		//Второй квадрат
 		private void SetSecondSquare()
 		{
-			string KeyLess = GetKeyLess(secondKey);
+			string KeyLess = GetKeyLess(secondKey, AlphabetB);
 			int index = 0, k = 0;
 			for (int i = 0; i < rows; i++)
 			{
@@ -81,14 +82,14 @@ namespace Cryptography_1
 			SetSecondSquare();
 			text = text.Replace(" ", "_");
 			if (text.Length % 2 == 1)
-				text += "_"; 
+				text += "_";
 		}
 
 		//Зашифровка
 		public string Encode()
 		{
 			CipherDerivation();
-			string Pair ="";
+			string Pair = "";
 			for (int i = 0; i < text.Length; i++)
 			{
 				Pair += text[i];
@@ -105,7 +106,7 @@ namespace Cryptography_1
 		public string Decode()
 		{
 			SetFirstSquare();
-			SetSecondSquare(); 
+			SetSecondSquare();
 			string Pair = "";
 			for (int i = 0; i < text.Length; i++)
 			{
@@ -116,24 +117,24 @@ namespace Cryptography_1
 					Pair = "";
 				}
 			}
-			return decrypt.Replace("_"," ").Trim();
+			return decrypt.Replace("_", " ").Trim();
 		}
 
 
 
 		//Поиск позиции элемента в таблице
-		private void SearchIndexToArray(char [,] Square, char SearchChar, out int TableRows, out int TableColumns)
+		private void SearchIndexToArray(char[,] Square, char SearchChar, out int TableRows, out int TableColumns)
 		{
 			TableRows = -1;
 			TableColumns = -1;
-			int Rows = Square.GetUpperBound(0)+1;//Ряды
-			int Columns = Square.GetUpperBound(1)+1;//Колонки
+			int Rows = Square.GetUpperBound(0) + 1;//Ряды
+			int Columns = Square.GetUpperBound(1) + 1;//Колонки
 
 			for (int i = 0; i < Rows; i++)
 			{
 				for (int j = 0; j < Columns; j++)
 				{
-					if (Square[i, j]==SearchChar)
+					if (Square[i, j] == SearchChar)
 					{
 						TableRows = i;
 						TableColumns = j;
